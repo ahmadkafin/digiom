@@ -26,7 +26,7 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 33
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -57,20 +57,20 @@ android {
             storeFile localProperties['storeFile'] ? file(localProperties['storeFile']) : null
             storePassword localProperties['storePassword']
         }
-        // debug {
-        //     keyAlias localProperties['keyAlias']
-        //     keyPassword localProperties['keyPassword']
-        //     storeFile localProperties['storeFile'] ? file(localProperties['storeFile']) : null
-        //     storePassword localProperties['storePassword']
-        // }
+        debug {
+            keyAlias localProperties['keyAliasDebug']
+            keyPassword localProperties['keyPasswordDebug']
+            storeFile localProperties['storeFileDebug'] ? file(localProperties['storeFileDebug']) : null
+            storePassword localProperties['storePasswordDebug']
+        }
     }
 
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
-            // signingConfig signingConfigs.release
+            // signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
         }
     }
 }
@@ -80,5 +80,5 @@ flutter {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 }

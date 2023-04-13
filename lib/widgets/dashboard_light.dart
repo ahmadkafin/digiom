@@ -97,7 +97,12 @@ class _DashboardLightState extends State<DashboardLight> {
                         child: GridTile(
                           child: Image.asset(
                             'img/icons/${index + 1}.png',
-                            color: Color.fromRGBO(84, 130, 53, 1),
+                            color: const Color.fromRGBO(
+                              84,
+                              130,
+                              53,
+                              1,
+                            ),
                           ),
                         ),
                       ),
